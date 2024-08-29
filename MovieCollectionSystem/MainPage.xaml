@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieCollectionSystem.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Picker x:Name="name_picker"
+                    ItemDisplayBinding="{Binding Name}"/>
+            <Entry x:Name="password_entry"
+                   IsPassword="True"/>
+            <Button x:Name="login_button"
+                    Text="Log in"
+                    Clicked="login_button_Clicked"/>
+            <Button x:Name="createuser_button"
+                    Text="Maak gebruiker"
+                    Clicked="createuser_button_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

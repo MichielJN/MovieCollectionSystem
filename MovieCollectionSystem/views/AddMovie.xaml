@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieCollectionSystem.views.AddMovie"
+             Title="AddMovie">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Entry x:Name="searchname_entry"
+                   Placeholder="Zoek film"/>
+            <Button
+                Text="Vul gegevens in op basis van filmnaam"
+                x:Name="searchname_button"
+                Clicked="searchname_button_Clicked"/>
+            <Entry x:Name="name_entry"
+                   Placeholder="Filmnaam"/>
+            <Entry x:Name="director_entry"
+                   Placeholder="Naam regiseur"/>
+            <Entry x:Name="actor_entry"
+                   Placeholder="Acteurs"/>
+            <Entry x:Name="description_entry"
+        Placeholder="Schrijf beschrijving hier"/>
+            <Entry x:Name="writer_entry"
+                   Placeholder="Naam schrijver"/>
+            <Entry x:Name="country_entry"
+                   Placeholder="Land waar film uit komt"/>
+            <Entry x:Name="language_entry"
+                   Placeholder="Taal"/>
+            <Label Text="{Binding Value, StringFormat='Hele uren: {0}'}"
+                   BindingContext="{x:Reference hour_stepper}"
+                   />
+            <Stepper x:Name="hour_stepper"
+                Minimum="0" Maximum="10" Increment="1" 
+                         Value="0"/>
+            <Label Text="{Binding Value, StringFormat='Overgebleven minuten: {0}'}"
+                   BindingContext="{x:Reference minute_slider}"/>
+            <Slider x:Name="minute_slider"
+                Minimum="0" Maximum="59"/>
+            <Label Text="Selecteer Genre"/>
+            <Picker x:Name="genre_picker"
+                    ItemDisplayBinding="{Binding Name}"
+                   Title="Genre" />
+            <Entry x:Name="newgenre_entry"
+                   Placeholder="Voer een nieuwe genre in en koppel aan film"
+                   />
+            <Label Text="Premiere datum" />
+            <DatePicker x:Name="releasedate_datepicker"/>
+            <Button x:Name="picture_button"
+                    Text="Maak foto van film"
+                    Clicked="picture_button_Clicked"/>
+            <Button x:Name="addtoownedmovies_button"
+                    Text="Voeg toe aan films in collectie"
+                    Clicked="addtoownedmovies_button_Clicked"/>
+            <Button x:Name="addtomoviewishlistbutton"
+                    Text="Voeg toe aan verlanglijst"
+                    Clicked="addtomoviewishlistbutton_Clicked"/>
+            <Button x:Name="back_button"
+        Text="Terug"
+        Clicked="back_button_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieCollectionSystem.views.UserHome"
+             Title="UserHome">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            
+            <Label Text="Films in collectie"/>
+            
+            <CarouselView x:Name="ownedmovie_carousel"
+                         HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="CenterAndExpand">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame>
+                                <StackLayout>
+                                    <Image
+                                        Source="{Binding ImagePath}"
+                                        Aspect="AspectFit"
+                                        HeightRequest="200"
+                                        WidthRequest="200"
+                                        />
+                                    <Label Text="{Binding Name, StringFormat='Naam: {0}'}"/>
+                                    <Label Text="{Binding Director, StringFormat='Regiseur: {0}'}"/>
+                                    <Label Text="{Binding Description, StringFormat='Beschrijving: {0}'}"/>
+                                    <Label Text="{Binding Actors, StringFormat='Acteuren: {0}'}"/>
+                                    <Label Text="{Binding MovieLength, StringFormat='Lengte: {0}'}"/>
+                                    <Label Text="{Binding Language, StringFormat='Taal: {0}'}"/>
+                                    <Label Text="{Binding ReleaseDate, StringFormat=Premieredatum: \{0:d\}}"/>
+                                    <Label Text="{Binding CountryMadeIn, StringFormat='Gemaakt in: {0}'}"/>
+                                    <Button Text="voeg toe aan favorieten"
+                                            x:Name="addtofavourites_button"
+                                            Clicked="addtofavourites_button_Clicked"/>
+                                    <Button Text="Pas film aan"
+                                      x:Name="editmovie_button"
+                                         Clicked="editmovie_button_Clicked"
+                                            BindingContext="{Binding Id}"/>
+                                    <Button Text="Verwijder film"
+                                              x:Name="deletemovie_button"
+                                          Clicked="deletemovie_button_Clicked"
+                                           BindingContext="{Binding Id}" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            
+            <Label Text="Verlanglijst"/>
+                <CarouselView x:Name="moviewishlist_carousel">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame>
+                                <StackLayout>
+                                    <Image
+                                        Source="{Binding ImagePath}"
+                                        Aspect="AspectFit"
+                                        HeightRequest="200"
+                                        WidthRequest="200"
+                                        />
+                                    <Label Text="{Binding Name, StringFormat='Naam: {0}'}"/>
+                                    <Label Text="{Binding Director, StringFormat='Regiseur: {0}'}"/>
+                                    <Label Text="{Binding Description, StringFormat='Beschrijving: {0}'}"/>
+                                    <Label Text="{Binding Actors, StringFormat='Acteuren: {0}'}"/>
+                                    <Label Text="{Binding Genre.Name, StringFormat='Genre(s): {0}'}"/>
+                                    <Label Text="{Binding MovieLength, StringFormat='Lengte: {0}'}"/>
+                                    <Label Text="{Binding Language, StringFormat='Taal: {0}'}"/>
+                                    <Label Text="{Binding ReleaseDate, StringFormat=Premieredatum: \{0:d\}}"/>
+                                    <Label Text="{Binding CountryMadeIn, StringFormat='Gemaakt in: {0}'}"/>
+                                    <Button Text="voeg toe aan favorieten"
+                                            x:Name="addtofavourites_button"
+                                            Clicked="addtofavourites_button_Clicked"/>
+                                    <Button Text="voeg toe aan collectie"
+                                             x:Name="addtoownedmovies_button"
+                                             Clicked="addtoownedmovies_button_Clicked"
+                                            BindingContext="{Binding Id}"/>
+                                    <Button Text="Pas film aan"
+                                           x:Name="editmoviewishlist_button"
+                                           Clicked="editmovie_button_Clicked"
+                                            BindingContext="{Binding Id}"/>
+                                     <Button Text="Verwijder film"
+                                            x:Name="deletemoviewishlist_button"
+                                            Clicked="deletemovie_button_Clicked"
+                                             BindingContext="{Binding Id}" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+        
+        <Button x:Name="addmovie_button"
+            Text="Voeg film toe"
+             Clicked="addmovie_button_Clicked"   />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

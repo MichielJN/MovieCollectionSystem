@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieCollectionSystem.views.CreateUser"
+             Title="CreateUser">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Entry x:Name="name_entry"
+                   Placeholder="Naam"/>
+            <Entry x:Name="password_entry"
+                   Placeholder="Wachtwoord"
+                   IsPassword="True"/>
+            <Entry x:Name="confirmpassword_entry"
+                   Placeholder="Wachtwoord bevestigen"
+                   IsPassword="True"/>
+            <Button x:Name="create_button"
+                    Text="Maak gebruiker"
+                    Clicked="create_button_Clicked"/>
+            <Button x:Name="back_button"
+                    Text="Terug"
+                     Clicked="back_button_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
